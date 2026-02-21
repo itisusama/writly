@@ -1,8 +1,7 @@
 import BoxCenter from "@/slots/box-center"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
-import { Mars, Venus } from "lucide-react"
+import { ui } from "@/barrel/ui"
+import { icons } from "@/barrel/icons"
 import useGender from "@/hooks/useGender"
 
 const Home = () => {
@@ -11,14 +10,13 @@ const Home = () => {
   return (
     <BoxCenter>
       <div className="flex flex-col items-center gap-8">
-        <div className="text-center space-y-2">
-          <h1 className="text-3xl font-bold tracking-tight">Choose a Gender</h1>
-          <p className="text-muted-foreground">Select one to continue</p>
-        </div>
-
+        <ui.Heading
+          heading="Choose a Gender"
+          subheading="Select one to continue"
+        />
         <div className="flex gap-6">
           {/* Male Card */}
-          <Card
+          <ui.Card
             onClick={() => gender.handleSelect("male")}
             className={cn(
               "flex flex-col items-center justify-center gap-4 p-8 w-44 h-52 cursor-pointer transition-all duration-200 hover:scale-105 border-2",
@@ -27,7 +25,7 @@ const Home = () => {
                 : "border-transparent hover:border-blue-300"
             )}
           >
-            <Mars className={cn("w-12 h-12 transition-colors duration-200", gender.selectedGender === "male" ? "text-blue-500" : "text-blue-400")} />
+            <icons.Mars className={cn("w-12 h-12 transition-colors duration-200", gender.selectedGender === "male" ? "text-blue-500" : "text-blue-400")} />
             <span
               className={cn(
                 "font-semibold text-lg transition-colors duration-200",
@@ -36,10 +34,10 @@ const Home = () => {
             >
               Male
             </span>
-          </Card>
+          </ui.Card>
 
           {/* Female Card */}
-          <Card
+          <ui.Card
             onClick={() => gender.handleSelect("female")}
             className={cn(
               "flex flex-col items-center justify-center gap-4 p-8 w-44 h-52 cursor-pointer transition-all duration-200 hover:scale-105 border-2",
@@ -48,7 +46,7 @@ const Home = () => {
                 : "border-transparent hover:border-pink-300"
             )}
           >
-          <Venus className={cn("w-12 h-12 transition-colors duration-200", gender.selectedGender === "female" ? "text-pink-500" : "text-pink-400")} />
+          <icons.Venus className={cn("w-12 h-12 transition-colors duration-200", gender.selectedGender === "female" ? "text-pink-500" : "text-pink-400")} />
             <span
               className={cn(
                 "font-semibold text-lg transition-colors duration-200",
@@ -57,10 +55,10 @@ const Home = () => {
             >
               Female
             </span>
-          </Card>
+          </ui.Card>
         </div>
 
-        <Button
+        <ui.Button
           onClick={gender.handleNext}
           disabled={!gender.selectedGender}
           size="lg"
@@ -71,7 +69,7 @@ const Home = () => {
           )}
         >
           Next
-        </Button>
+        </ui.Button>
       </div>
     </BoxCenter>
   )

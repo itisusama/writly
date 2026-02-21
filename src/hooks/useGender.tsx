@@ -19,7 +19,7 @@ export default function useGender() {
 
     const handleNext = () => {
         if (selectedGender) {
-            router("/next") // Change this to your desired route
+            router("/name")
         }
     }
     return {
