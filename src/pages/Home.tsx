@@ -5,7 +5,7 @@ import { icons } from "@/barrel/icons"
 import useGender from "@/hooks/useGender"
 
 const Home = () => {
- const gender = useGender()
+ const gender = useGender();
 
   return (
     <BoxCenter>
